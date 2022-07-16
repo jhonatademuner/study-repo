@@ -37,9 +37,6 @@ int main(){
     salarioLiquido = salarioBruto_inss - impostoRenda;
 
     printf("SALARIO LIQUIDO = %.2f", salarioLiquido);
-    printf("\n%f", salarioBruto);
-    printf("\n%f", salarioBruto_inss);
-    printf("\n%f", impostoRenda);
 
     return 0;
 }
