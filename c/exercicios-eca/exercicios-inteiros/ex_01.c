@@ -7,13 +7,13 @@ int main(){
     int num;
 
     printf("Insira um numero: ");
-    scanf("%d", &num);
+    // scanf("%d", &num);
 
-    while (num != 0){
-        printf("Quadrado de %d = %d\n", num, num * num);
-        printf("Insira um numero: ");
-        scanf("%d", &num);
-    }
+    // while (num != 0){
+    //     printf("Quadrado de %d = %d\n", num, num * num);
+    //     printf("Insira um numero: ");
+    //     scanf("%d", &num);
+    // }
 
     return 0;
 }
