@@ -35,7 +35,7 @@ form.addEventListener('submit', function (evento){
     //$ Metodo usado para impedir  o navegador de executar seu comportamento padrao quando o usuario enviar o formulario(recarregar a página)
     evento.preventDefault();
 
-    //$ Defininvo a constante que ira exibir o resultado dos calculo do IMC do usuario como um elemento HTML(<p></p>)
+    //$ Definindo a constante que ira exibir o resultado dos calculo do IMC do usuario como um elemento HTML(<p></p>)
     const resultado = document.createElement('p');
     //$ Adicionando uma classe ao elemento para que possamos estilizar o resultado usando CSS
     resultado.classList.add('resultado')
