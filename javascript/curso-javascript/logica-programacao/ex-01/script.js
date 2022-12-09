@@ -14,3 +14,5 @@ const max3 = (num1, num2) => {
 }
 
 const max4 = (num1, num2) => num1 > num2 ? num1 : num2;
+
+console.log(max4(5, 9))
