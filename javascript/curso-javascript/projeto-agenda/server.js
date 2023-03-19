@@ -34,7 +34,7 @@ app.use(sessionOptions);
 app.use(flash());
 
 
-const { middlewareGlobal, checkCsrfError, csrfMiddleware} = require('./src/middlewares/middleware');
+const { middlewareGlobal, csrfMiddleware} = require('./src/middlewares/middleware');
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -43,7 +43,6 @@ app.use(helmet());
 app.use(csrf());
 
 app.use(csrfMiddleware);
-app.use(checkCsrfError);
 app.use(middlewareGlobal);
 app.use(routes);
 
