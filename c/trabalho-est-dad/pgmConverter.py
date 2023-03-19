@@ -6,8 +6,8 @@ def pgmConverter(inputPath, outputPath):
     cv2.imwrite(outputPath, grayImage, [cv2.IMWRITE_PXM_BINARY, 0])
 
 def main():
-    inputDirectory = "images-input"
-    outputDirectory = "images-output"
+    inputDirectory = "converter"
+    outputDirectory = "images-input"
 
     for filename in os.listdir(inputDirectory):
         inputPath = os.path.join(inputDirectory, filename)
