@@ -14,6 +14,8 @@ def main():
         outputPath = os.path.join(outputDirectory, filename.replace(".jpg", ".pgm"))
         pgmConverter(inputPath, outputPath)
 
+    print("Imagens convertidas com sucesso!")
+
 if __name__ == "__main__":
     main()
 

@@ -372,7 +372,7 @@ int main()
 
         clearString(imgName);
         clearTerminal();
-        printf("Digite o nome da imagem: ");
+        printf("Digite o nome da imagem (nao se esqueca de colocar a extensao *.pgm): ");
         scanf("%s", &imgName);
 
         matrixToPgm(matrix, width, height, imgName);
