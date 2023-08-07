@@ -1,2 +1,4 @@
-# Estudos Programação
-Repositório criado para  a postagem de alguns códigos menores e exercícios de diversas fontes que irei fazer enquanto estiver estudando.
+# Study Repository
+
+This repository will contain all the files that i will be using to study coding, such as the projects that i create while studiyng.  
+Fell free to use this repository to study by yourself.
