@@ -1,3 +1,15 @@
+You can see it on Notion as well: [Git Notes](https://jhonatapolito.notion.site/Git-Notes-97ff46a8a9664b92bc41de34bb8abf15?pvs=4)
+
+# Contents:
+
+[Quick Start](#quick-start)<br>
+[Configure Tooling](#configure-tooling)<br>
+[Creating or cloning a repository](#creating-or-cloning-a-repository)<br>
+[Branches management](#branches-management)<br>
+[Synchronizing changes](#synchronizing-changes)<br>
+[Making changes](#making-changes)<br>
+[Mistakes Handling](#mistakes-handling)<br>
+
 # Quick start:
 
 Setting Git up:
