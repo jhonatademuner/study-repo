@@ -1,5 +1,21 @@
+
+import java.util.Scanner;
+
 public class Date {
     int month, day, year;
+
+    public Date(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter the month: ");
+        this.month = input.nextInt();
+
+        System.out.println("Enter the day: ");
+        this.day = input.nextInt();
+
+        System.out.println("Enter the year: ");
+        this.year = input.nextInt();
+    }
 
     Date (int m, int d, int y){
         this.month = m;

@@ -2,14 +2,24 @@ public class CheckingAccount extends Account{
 
     double limit;
 
+    CheckingAccount(Manager m){
+        super(m);
+        this.limit = 200;
+    }
+
     CheckingAccount(String n, Person o, Date d){
         super(n, o, d);
         this.limit = 200;
-        System.out.println("New checking account added in the system.");
+        System.out.println("NEW CHECKING ACCOUNT ADDED IN THE SYSTEM");
     }
 
     double available(){
         return this.balance + this.limit;
+    }
+
+    void statement(){
+        System.out.println("******* CHECKING ACCOUNT STATEMENT *******");
+        super.statement();
     }
 
     void overdraft(double fees){

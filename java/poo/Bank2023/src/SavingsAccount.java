@@ -1,8 +1,17 @@
 public class SavingsAccount extends Account{
 
+    SavingsAccount(Manager m){
+        super(m);
+    }
+
     SavingsAccount(String n, Person o, Date d){
         super(n, o, d);
-        System.out.println("New savings account added in the system.");
+        System.out.println("NEW SAVINGS ACCOUNT ADDED IN THE SYSTEM");
+    }
+
+    void statement(){
+        System.out.println("******* SAVINGS ACCOUNT STATEMENT ********");
+        super.statement();
     }
 
     void incomes(double fees){
