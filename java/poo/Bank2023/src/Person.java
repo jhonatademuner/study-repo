@@ -1,34 +1,35 @@
 import java.util.Scanner;
 
 public class Person {
-    String name, cpf;
-    Date dateBirth;
-    char sex;
+    private String name;
+    private String cpf;
+    private Date dateBirth;
+    private char sex;
 
     Person(){
         System.out.println("******  ENTER THE PERSON INFORMATION ******");
 
         Scanner s = new Scanner(System.in);
         System.out.println("Enter the name: ");
-        this.name = s.nextLine();
+        this.setName(s.nextLine());
 
         System.out.println("Enther the CPF: ");
-        this.cpf = s.nextLine();
+        this.setCpf(s.nextLine());
 
         System.out.println("Enter the date of birth: ");
-        this.dateBirth = new Date();
+        this.setDateBirth(new Date());
 
         System.out.println("Enter the sex: ");
-        this.sex = s.nextLine().charAt(0);
+        this.setSex(s.nextLine().charAt(0));
 
         System.out.println("*******************************************\n");
     }
 
     Person (String n, Date db, char s, String c){
-        this.name = n;
-        this.dateBirth = db;
-        this.sex = s;
-        this.cpf = c;
+        this.setName(n);
+        this.setDateBirth(db);
+        this.setSex(s);
+        this.setCpf(c);
         System.out.println("\n*******************************************");
         System.out.println("NEW PERSON ADDED IN THE SYSTEM");
         System.out.println("*******************************************\n");
@@ -37,12 +38,44 @@ public class Person {
 
 
     int getAge(Date d){
-        if (d.month > this.dateBirth.month){
-            return d.year - this.dateBirth.year;
+        if (d.getMonth() > this.getDateBirth().getMonth()){
+            return d.getYear() - this.getDateBirth().getYear();
         }
-        if (d.month == this.dateBirth.month && d.day >= this.dateBirth.day){
-            return d.year - this.dateBirth.year;
+        if (d.getMonth() == this.getDateBirth().getMonth() && d.getDay() >= this.getDateBirth().getDay()){
+            return d.getYear() - this.getDateBirth().getYear();
         }
-        return d.year - this.dateBirth.year - 1;
+        return d.getYear() - this.getDateBirth().getYear() - 1;
+    }
+
+    protected String getName() {
+        return name;
+    }
+
+    protected void setName(String name) {
+        this.name = name;
+    }
+
+    protected String getCpf() {
+        return cpf;
+    }
+
+    protected void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    protected Date getDateBirth() {
+        return dateBirth;
+    }
+
+    protected void setDateBirth(Date dateBirth) {
+        this.dateBirth = dateBirth;
+    }
+
+    protected char getSex() {
+        return sex;
+    }
+
+    protected void setSex(char sex) {
+        this.sex = sex;
     }
 }

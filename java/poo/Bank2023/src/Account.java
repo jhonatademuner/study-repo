@@ -1,28 +1,28 @@
 import java.util.Scanner;
 
 public class Account {
-    String num;
-    Person owner;
-    Date creationDt;
-    double balance;
-    Manager manager;
+    private String num;
+    private Person owner;
+    private Date creationDt;
+    private double balance;
+    private Manager manager;
 
     Account (Manager m){
         System.out.println("****** ENTER THE MANAGER INFORMATION ******");
 
         Scanner s = new Scanner(System.in);
         System.out.println("Enter the account number: ");
-        this.num = s.nextLine();
+        this.setNum(s.nextLine());
 
         System.out.println("Enter the account owner: ");
-        this.owner = new Person();
+        this.setOwner(new Person());
 
         System.out.println("Enter the account creation date: ");
-        this.creationDt = new Date();
+        this.setCreationDt(new Date());
 
-        this.balance = 0;
+        this.setBalance(0);
 
-        this.manager = m;
+        this.setManager(m);
 
         System.out.println("*******************************************\n");
 
@@ -33,41 +33,41 @@ public class Account {
     }
 
     Account (String n, Person o, Date d){
-        this.num = n;
-        this.owner = o;
-        this.creationDt = d;
-        this.balance = 0.0;
+        this.setNum(n);
+        this.setOwner(o);
+        this.setCreationDt(d);
+        this.setBalance(0.0);
         System.out.println("\n*******************************************");
         System.out.println("      NEW ACCOUNT ADDED IN THE SYSTEM");
         System.out.println("*******************************************\n");
 
     }
 
-    double available(){
-        return this.balance;
+    protected double available(){
+        return this.getBalance();
     }
 
     void statement(){
-        System.out.println("Account: " + this.num);
-        System.out.println("Account owner: " + this.owner.name + " (CPF: " + this.owner.cpf + " )");
+        System.out.println("Account: " + this.getNum());
+        System.out.println("Account owner: " + this.getOwner().getName() + " (CPF: " + this.getOwner().getCpf() + " )");
         System.out.println("Balance available for withdrawal: " + this.available());
         System.out.println("*******************************************\n");
     }
 
     void deposit(double value){
-        this.balance += value;
+        this.setBalance(this.getBalance() + value);
     }
 
     boolean withdrawal(double value){
         if (value <= this.available()){
-            this.balance -= value;
+            this.setBalance(this.getBalance() - value);
             System.out.println("\n*******************************************");
-            System.out.println("Withdrawal from account " + this.num + " was successful.\nNew balance: " + this.balance);
+            System.out.println("Withdrawal from account " + this.getNum() + " was successful.\nNew balance: " + this.getBalance());
             System.out.println("*******************************************\n");
             return true;
         } else {
             System.out.println("\n*******************************************");
-            System.out.println("ERROR: Withdrawal from account " + this.num + " was not carried out.");
+            System.out.println("ERROR: Withdrawal from account " + this.getNum() + " was not carried out.");
             System.out.println("*******************************************\n");
 
             return false;
@@ -78,13 +78,13 @@ public class Account {
         if (this.withdrawal(value)){
             destination.deposit(value);
             System.out.println("\n*******************************************");
-            System.out.println("Transference of $" + value + " from account " + this.num + " to the account " + destination.num + " was successful.");
+            System.out.println("Transference of $" + value + " from account " + this.getNum() + " to the account " + destination.getNum() + " was successful.");
             System.out.println("*******************************************\n");
 
             return true;
         } else{
             System.out.println("\n*******************************************");
-            System.out.println("ERROR: Transference of $" + value + " from account " + this.num + " to the account " + destination.num + " was not carried out.");
+            System.out.println("ERROR: Transference of $" + value + " from account " + this.getNum() + " to the account " + destination.getNum() + " was not carried out.");
             System.out.println("*******************************************\n");
 
             return false;
@@ -92,5 +92,43 @@ public class Account {
     }
 
 
+    protected String getNum() {
+        return num;
+    }
 
+    protected void setNum(String num) {
+        this.num = num;
+    }
+
+    protected Person getOwner() {
+        return owner;
+    }
+
+    protected void setOwner(Person owner) {
+        this.owner = owner;
+    }
+
+    protected Date getCreationDt() {
+        return creationDt;
+    }
+
+    protected void setCreationDt(Date creationDt) {
+        this.creationDt = creationDt;
+    }
+
+    protected double getBalance() {
+        return balance;
+    }
+
+    protected void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    protected Manager getManager() {
+        return manager;
+    }
+
+    protected void setManager(Manager manager) {
+        this.manager = manager;
+    }
 }

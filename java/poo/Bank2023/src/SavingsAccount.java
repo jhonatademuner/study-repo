@@ -15,8 +15,8 @@ public class SavingsAccount extends Account{
     }
 
     void incomes(double fees){
-        if (this.balance > 0){
-            this.balance += (this.balance / 100) * fees;
+        if (this.getBalance() > 0){
+            this.setBalance(this.getBalance() + (this.getBalance() / 100) * fees);
             System.out.println("The fees was applied.");
         } else {
             System.out.println("The fees was not applied.");
