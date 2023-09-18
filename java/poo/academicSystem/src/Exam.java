@@ -14,18 +14,18 @@ public class Exam extends Evaluation {
 //    ===========================================================
 
     private int getQuestionsNum() {
-        return QuestionsNum;
+        return this.QuestionsNum;
     }
 
     private void setQuestionsNum(int questionsNum) {
         this.QuestionsNum = questionsNum;
     }
 
-    private StudentExam[] getGrades() {
-        return grades;
+    public StudentExam[] getGrades() {
+        return this.grades;
     }
 
-    private void setGrades(StudentExam[] grades) {
+    public void setGrades(StudentExam[] grades) {
         this.grades = grades;
     }
 

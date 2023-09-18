@@ -14,15 +14,15 @@ public class Assessment extends Evaluation {
 //    ===========================================================
 
     private int getEstimateTime() {
-        return estimateTime;
+        return this.estimateTime;
     }
 
     private void setEstimateTime(int estimateTime) {
         this.estimateTime = estimateTime;
     }
 
-    private StudentAssessment[] getGrades() {
-        return grades;
+    public StudentAssessment[] getGrades() {
+        return this.grades;
     }
 
     private void setGrades(StudentAssessment[] grades) {
@@ -31,7 +31,7 @@ public class Assessment extends Evaluation {
 
 //    ===========================================================
 
-    public double grades(int index) {
+    public double grade(int index) {
         return this.grades[index].totalGrades(this.getApplicationDate(), this.getEstimateTime(), this.getValue());
     }
 

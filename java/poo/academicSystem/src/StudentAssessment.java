@@ -17,23 +17,23 @@ public class StudentAssessment {
 //    ===========================================================
 
     private Student getStudent() {
-        return student;
+        return this.student;
     }
 
     private void setStudent(Student student) {
         this.student = student;
     }
 
-    private double getGrade() {
-        return grade;
+    public double getGrade() {
+        return this.grade;
     }
 
-    private void setGrade(double grade) {
+    public void setGrade(double grade) {
         this.grade = grade;
     }
 
     private Date getSentDate() {
-        return sentDate;
+        return this.sentDate;
     }
 
     private void setSentDate(Date deadline) {
@@ -41,7 +41,7 @@ public class StudentAssessment {
     }
 
     private int getExecTime() {
-        return execTime;
+        return this.execTime;
     }
 
     private void setExecTime(int execTime) {
@@ -51,10 +51,10 @@ public class StudentAssessment {
 //    ===========================================================
 
     public double totalGrades(Date deadline, int expectedTime, double value) {
-        if(this.sentDate.later(deadline)) {
+        if (this.sentDate.later(deadline)) {
             return this.grade * 0.8;
         } else if ((this.grade == value) && (this.execTime <= expectedTime)) {
-            return this.grade + 2;
+            return (this.grade + 2) % (value + 0.01);
         }
         return this.grade;
     }

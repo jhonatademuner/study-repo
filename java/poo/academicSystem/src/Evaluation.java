@@ -15,7 +15,7 @@ public class Evaluation {
 //    ===========================================================
 
     protected String getName() {
-        return name;
+        return this.name;
     }
 
     protected void setName(String name) {
@@ -23,7 +23,7 @@ public class Evaluation {
     }
 
     protected Date getApplicationDate() {
-        return applicationDate;
+        return this.applicationDate;
     }
 
     protected void setApplicationDate(Date applicationDate) {
@@ -31,7 +31,7 @@ public class Evaluation {
     }
 
     protected double getValue() {
-        return value;
+        return this.value;
     }
 
     protected void setValue(double value) {
@@ -44,4 +44,7 @@ public class Evaluation {
         return 0;
     }
 
+    public Object getGrades() {
+        return null;
+    }
 }

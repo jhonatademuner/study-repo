@@ -69,9 +69,25 @@ public class Course {
         this.evaluations = evaluations;
     }
 
+
+
 //    ===========================================================
 
+    private void printStudentGrades(Student student) {
+       for (int i = 0; i < this.evaluations.length; i++) {
+              System.out.println(this.evaluations[i].);
+       }
+
+
+    }
+
+
+
     public void averages() {
-        // T
+        System.out.println("Médias da Turma " + this.name + " :");
+        for (int i = 0; i < students.length; i++) {
+            System.out.println(students[i] + " : " + evaluations[i].getGrades());
+        }
+        System.out.println("Média da Turma : " + "MEDIA DA TURMA (DUVIDA QUANTO AO FORMATO DO ARRAY DE AVALIACOES)");
     }
 }

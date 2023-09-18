@@ -2,6 +2,7 @@
 
 /**
  * Classe principal
+ *
  * @author Hilario Seibel Junior
  */
 public class Main {

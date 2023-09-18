@@ -13,7 +13,7 @@ public class StudentExam {
 //    ===========================================================
 
     public Student getStudent() {
-        return student;
+        return this.student;
     }
 
     public void setStudent(Student student) {
@@ -21,7 +21,7 @@ public class StudentExam {
     }
 
     public double[] getGrades() {
-        return grades;
+        return this.grades;
     }
 
     public void setGrades(double[] grades) {

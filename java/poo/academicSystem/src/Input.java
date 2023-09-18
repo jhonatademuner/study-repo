@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 /**
  * Classe com as rotinas de entrada e saída do projeto
+ *
  * @author Hilario Seibel Junior, Jhonata Polito Demuner e João Pedro Spinassé Viana
  */
 
@@ -31,6 +32,7 @@ public class Input {
     /**
      * Faz a leitura de uma linha inteira
      * Ignora linhas começando com #, que vão indicar comentários no arquivo de entrada:
+     *
      * @param msg: Mensagem que será exibida ao usuário
      * @return Uma String contendo a linha que foi lida
      */
@@ -46,6 +48,7 @@ public class Input {
 
     /**
      * Faz a leitura de um número inteiro
+     *
      * @param msg: Mensagem que será exibida ao usuário
      * @return O número digitado pelo usuário convertido para int
      */
@@ -57,6 +60,7 @@ public class Input {
 
     /**
      * Faz a leitura de um double
+     *
      * @param msg: Mensagem que será exibida ao usuário
      * @return O número digitado pelo usuário convertido para double
      */
@@ -68,6 +72,7 @@ public class Input {
 
     /**
      * Imprime o menu principal, lê a opção escolhida pelo usuário e retorna a opção selecionada.
+     *
      * @return Inteiro contendo a opção escolhida pelo usuário
      */
     public int menu1() {

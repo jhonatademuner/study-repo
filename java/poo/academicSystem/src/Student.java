@@ -4,15 +4,15 @@ public class Student extends Person {
 
 //    ===========================================================
 
-    public Student(String name, String cpf, String mat) {
-        super(name, cpf);
+    public Student(String name, String regId, String mat) {
+        super(name, regId);
         this.mat = mat;
     }
 
 //    ===========================================================
 
     private String getMat() {
-        return mat;
+        return this.mat;
     }
 
     private void setMat(String mat) {
@@ -21,8 +21,7 @@ public class Student extends Person {
 
 //    ===========================================================
 
-    public String toString(){
+    public String toString() {
         return this.getName() + " (Matrícula: " + this.getMat() + ")";
     }
-
 }

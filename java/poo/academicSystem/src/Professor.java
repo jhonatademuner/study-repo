@@ -12,7 +12,7 @@ public class Professor extends Person {
 //    ===========================================================
 
     public double getSalary() {
-        return salary;
+        return this.salary;
     }
 
     public void setSalary(double salary) {

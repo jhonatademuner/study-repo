@@ -13,7 +13,7 @@ public class Person {
 //    ===========================================================
 
     protected String getName() {
-        return name;
+        return this.name;
     }
 
     protected void setName(String name) {
@@ -21,7 +21,7 @@ public class Person {
     }
 
     protected String getCpf() {
-        return regId;
+        return this.regId;
     }
 
     protected void setCpf(String regId) {
