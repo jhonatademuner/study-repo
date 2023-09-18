@@ -1,10 +1,11 @@
-package com.jhonataplt.eletriccarapp
+package com.jhonataplt.eletriccarapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.jhonataplt.eletriccarapp.R
 
 class CalculateActivity : AppCompatActivity() {
 

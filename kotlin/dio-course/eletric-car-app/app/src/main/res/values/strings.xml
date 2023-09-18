@@ -2,7 +2,7 @@
     <string name="app_name">EletricCarApp</string>
     <string name="title">Electric Car</string>
     <string name="cars">Cars</string>
-    <string name="favorites">Favourites</string>
+    <string name="favorites">Favorites</string>
     <string name="tesla">Tesla</string>
     <string name="price">Price</string>
     <string name="battery">Battery</string>
