@@ -4,8 +4,8 @@ public class Professor extends Person {
 
 //    ===========================================================
 
-    public Professor(String name, String email, double salary) {
-        super(name, email);
+    public Professor(String name, String regId, double salary) {
+        super(name, regId);
         this.salary = salary;
     }
 

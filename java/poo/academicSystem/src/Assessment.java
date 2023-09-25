@@ -5,7 +5,7 @@ public class Assessment extends Evaluation {
 
 //    ===========================================================
 
-    public Assessment(String name, Date applicationDate, double value, int estimateTime, StudentAssessment[] grades) {
+    public Assessment(String name, TimeDate applicationDate, double value, int estimateTime, StudentAssessment[] grades) {
         super(name, applicationDate, value);
         this.estimateTime = estimateTime;
         this.grades = grades;

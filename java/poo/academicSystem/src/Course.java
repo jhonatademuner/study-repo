@@ -73,21 +73,29 @@ public class Course {
 
 //    ===========================================================
 
-    private void printStudentGrades(Student student) {
-       for (int i = 0; i < this.evaluations.length; i++) {
-              System.out.println(this.evaluations[i].);
-       }
-
-
+    public String toString(){
+        return this.name + " (" + this.year + "/" + this.semester + ")";
     }
 
-
+    private double maxGrade(double sum){
+        return Math.min(sum, 100.0);
+    }
 
     public void averages() {
-        System.out.println("Médias da Turma " + this.name + " :");
+        double courseMean = 0;
+
+        System.out.println("Médias da Turma " + this + " :");
         for (int i = 0; i < students.length; i++) {
-            System.out.println(students[i] + " : " + evaluations[i].getGrades());
+            double sum = 0;
+            System.out.print(students[i] + ": ");
+            for (Evaluation evaluation : evaluations) {
+                System.out.print(evaluation.grade(i) + " ");
+                sum += evaluation.grade(i);
+            }
+            sum = maxGrade(sum);
+            System.out.println("= " + sum);
+            courseMean += sum;
         }
-        System.out.println("Média da Turma : " + "MEDIA DA TURMA (DUVIDA QUANTO AO FORMATO DO ARRAY DE AVALIACOES)");
+        System.out.println("Média da turma: " + courseMean / students.length);
     }
 }

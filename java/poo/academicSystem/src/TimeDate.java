@@ -1,4 +1,4 @@
-public class Date {
+public class TimeDate {
 
     private final int day;
     private final int month;
@@ -6,13 +6,7 @@ public class Date {
 
 //    ===========================================================
 
-    public Date() {
-        this.day = 1;
-        this.month = 1;
-        this.year = 1;
-    }
-
-    public Date(int day, int month, int year) {
+    public TimeDate(int day, int month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
@@ -35,7 +29,7 @@ public class Date {
 
 //    ===========================================================
 
-    public boolean later(Date d2) {
+    public boolean later(TimeDate d2) {
         if (this.getYear() > d2.getYear()) {
             return true;
         } else if (this.getYear() == d2.getYear() && this.getMonth() > d2.getMonth()) {

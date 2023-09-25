@@ -11,7 +11,7 @@ public class Student extends Person {
 
 //    ===========================================================
 
-    private String getMat() {
+    public String getMat() {
         return this.mat;
     }
 

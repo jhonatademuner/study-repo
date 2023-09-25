@@ -5,7 +5,7 @@ public class Exam extends Evaluation {
 
 //    ===========================================================
 
-    public Exam(String name, Date applicationDate, double value, int questionsNum, StudentExam[] grades) {
+    public Exam(String name, TimeDate applicationDate, double value, int questionsNum, StudentExam[] grades) {
         super(name, applicationDate, value);
         this.QuestionsNum = questionsNum;
         this.grades = grades;

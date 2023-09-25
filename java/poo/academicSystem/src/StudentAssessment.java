@@ -2,12 +2,12 @@ public class StudentAssessment {
 
     private Student student;
     private double grade;
-    private Date sentDate;
+    private TimeDate sentDate;
     private int execTime;
 
 //    ===========================================================
 
-    public StudentAssessment(Student student, double grade, Date deadline, int execTime) {
+    public StudentAssessment(Student student, double grade, TimeDate deadline, int execTime) {
         this.student = student;
         this.grade = grade;
         this.sentDate = deadline;
@@ -32,11 +32,11 @@ public class StudentAssessment {
         this.grade = grade;
     }
 
-    private Date getSentDate() {
+    private TimeDate getSentDate() {
         return this.sentDate;
     }
 
-    private void setSentDate(Date deadline) {
+    private void setSentDate(TimeDate deadline) {
         this.sentDate = deadline;
     }
 
@@ -50,11 +50,11 @@ public class StudentAssessment {
 
 //    ===========================================================
 
-    public double totalGrades(Date deadline, int expectedTime, double value) {
+    public double totalGrades(TimeDate deadline, int expectedTime, double value) {
         if (this.sentDate.later(deadline)) {
             return this.grade * 0.8;
         } else if ((this.grade == value) && (this.execTime <= expectedTime)) {
-            return (this.grade + 2) % (value + 0.01);
+            return this.grade + 2;
         }
         return this.grade;
     }

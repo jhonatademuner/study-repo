@@ -1,12 +1,12 @@
 public class Evaluation {
 
     private String name;
-    private Date applicationDate;
+    private TimeDate applicationDate;
     private double value;
 
 //    ===========================================================
 
-    public Evaluation(String name, Date applicationDate, double value) {
+    public Evaluation(String name, TimeDate applicationDate, double value) {
         this.name = name;
         this.applicationDate = applicationDate;
         this.value = value;
@@ -22,11 +22,11 @@ public class Evaluation {
         this.name = name;
     }
 
-    protected Date getApplicationDate() {
+    protected TimeDate getApplicationDate() {
         return this.applicationDate;
     }
 
-    protected void setApplicationDate(Date applicationDate) {
+    protected void setApplicationDate(TimeDate applicationDate) {
         this.applicationDate = applicationDate;
     }
 
@@ -44,7 +44,5 @@ public class Evaluation {
         return 0;
     }
 
-    public Object getGrades() {
-        return null;
-    }
+
 }

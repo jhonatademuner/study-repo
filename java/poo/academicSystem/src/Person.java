@@ -20,7 +20,7 @@ public class Person {
         this.name = name;
     }
 
-    protected String getCpf() {
+    protected String getRegId() {
         return this.regId;
     }
 
@@ -31,7 +31,7 @@ public class Person {
 //    ===========================================================
 
     public String toString() {
-        return this.getName() + " (CPF: " + this.getCpf() + ")";
+        return this.getName() + " (CPF: " + this.getRegId() + ")";
     }
 
 }
