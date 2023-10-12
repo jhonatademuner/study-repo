@@ -18,18 +18,18 @@ A tabela abaixo apresenta exemplos com alguns dados de entrada e suas respectiva
 testar seu programa com esses exemplos e com outros casos possíveis.
 
 	_________________________________________________
-	| Entrada			| Saída						|
+	| Entrada			| Saída														|
 	|___________________|___________________________|
-	| digital			| Tipo: Cofre Digital		|
-	| 12345				| Metodo de abertura: Senha	|
-	| 1234				| Senha incorreta!			|
+	| digital			| Tipo: Cofre Digital							|
+	| 12345				| Metodo de abertura: Senha				|
+	| 1234				| Senha incorreta!								|
 	|-------------------|---------------------------|
-	| fisico			| Tipo: Cofre Fisico		|
-	| 					| Metodo de abertura: Chave	|
+	| fisico			| Tipo: Cofre Fisico							|
+	| 					| Metodo de abertura: Chave					|
 	|-------------------|---------------------------|
-	| digital			| Tipo: Cofre Digital		|
-	| 2525				| Metodo de abertura: Senha	|
-	| 2525				| Cofre aberto!				|
+	| digital			| Tipo: Cofre Digital							|
+	| 2525				| Metodo de abertura: Senha				|
+	| 2525				| Cofre aberto!										|
 	|___________________|___________________________|
 
 */
