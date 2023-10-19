@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Date {
@@ -39,27 +38,27 @@ public class Date {
         return this.getYear() == d.getYear() && this.getMonth() == d.getMonth() && this.getDay() > d.getDay();
     }
 
-    private int getMonth() {
+    public int getMonth() {
         return month;
     }
 
-    private void setMonth(int month) {
+    public void setMonth(int month) {
         this.month = month;
     }
 
-    private int getDay() {
+    public int getDay() {
         return day;
     }
 
-    private void setDay(int day) {
+    public void setDay(int day) {
         this.day = day;
     }
 
-    private int getYear() {
+    public int getYear() {
         return year;
     }
 
-    private void setYear(int year) {
+    public void setYear(int year) {
         this.year = year;
     }
 }

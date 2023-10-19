@@ -7,17 +7,16 @@ public class Account {
     private double balance;
     private Manager manager;
 
-    Account (Manager m){
+    Account (Person owner, Manager m){
         System.out.println("****** ENTER THE MANAGER INFORMATION ******");
 
         Scanner s = new Scanner(System.in);
         System.out.println("Enter the account number: ");
         this.setNum(s.nextLine());
 
-        System.out.println("Enter the account owner: ");
-        this.setOwner(new Person());
+        this.setOwner(owner);
 
-        System.out.println("Enter the account creation date: ");
+        System.out.println("Enter the creation date: ");
         this.setCreationDt(new Date());
 
         this.setBalance(0);
@@ -28,7 +27,7 @@ public class Account {
 
 
         System.out.println("\n*******************************************");
-        System.out.println(" NEW MANAGER ACCOUNT ADDED IN THE SYSTEM");
+        System.out.println(" NEW ACCOUNT ADDED IN THE SYSTEM");
         System.out.println("*******************************************\n");
     }
 
@@ -58,6 +57,13 @@ public class Account {
         this.setBalance(this.getBalance() + value);
     }
 
+    void deposit(){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the value to deposit: ");
+        double value = s.nextDouble();
+        this.deposit(value);
+    }
+
     boolean withdrawal(double value){
         if (value <= this.available()){
             this.setBalance(this.getBalance() - value);
@@ -72,6 +78,13 @@ public class Account {
 
             return false;
         }
+    }
+
+    boolean withdrawal(){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the value to withdrawal: ");
+        double value = s.nextDouble();
+        return this.withdrawal(value);
     }
 
     boolean transfer(double value, Account destination){
@@ -89,6 +102,13 @@ public class Account {
 
             return false;
         }
+    }
+
+    boolean transfer(Account destination){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the value to transfer: ");
+        double value = s.nextDouble();
+        return this.transfer(value, destination);
     }
 
 

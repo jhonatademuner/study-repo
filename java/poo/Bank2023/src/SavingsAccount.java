@@ -1,7 +1,7 @@
 public class SavingsAccount extends Account{
 
-    SavingsAccount(Manager m){
-        super(m);
+    SavingsAccount(Person owner, Manager m){
+        super(owner, m);
     }
 
     SavingsAccount(String n, Person o, Date d){

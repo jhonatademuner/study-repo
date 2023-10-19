@@ -2,8 +2,8 @@ public class CheckingAccount extends Account{
 
     private double limit;
 
-    CheckingAccount(Manager m){
-        super(m);
+    CheckingAccount(Person owner, Manager m){
+        super(owner, m);
         this.setLimit(200);
     }
 

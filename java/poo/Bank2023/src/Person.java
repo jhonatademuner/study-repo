@@ -13,7 +13,7 @@ public class Person {
         System.out.println("Enter the name: ");
         this.setName(s.nextLine());
 
-        System.out.println("Enther the CPF: ");
+        System.out.println("Enter the CPF: ");
         this.setCpf(s.nextLine());
 
         System.out.println("Enter the date of birth: ");
