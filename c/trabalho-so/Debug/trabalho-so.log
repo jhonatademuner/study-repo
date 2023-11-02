@@ -1,0 +1,3 @@
+﻿  main.c
+C:\github-repos\study-repo\c\trabalho-so\main.c(28): warning C4716: 'threadFunc': must return a value
+  trabalho-so.vcxproj -> C:\github-repos\study-repo\c\trabalho-so\Debug\trabalho-so.exe
