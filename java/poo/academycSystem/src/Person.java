@@ -12,19 +12,19 @@ public class Person {
 
 //    ===========================================================
 
-    protected String getName() {
+    public String getName() {
         return this.name;
     }
 
-    protected void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    protected String getRegId() {
+    public String getRegId() {
         return this.regId;
     }
 
-    protected void setCpf(String regId) {
+    public void setCpf(String regId) {
         this.regId = regId;
     }
 

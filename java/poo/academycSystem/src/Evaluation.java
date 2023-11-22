@@ -14,27 +14,27 @@ public class Evaluation {
 
 //    ===========================================================
 
-    protected String getName() {
+    public String getName() {
         return this.name;
     }
 
-    protected void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    protected TimeDate getApplicationDate() {
+    public TimeDate getApplicationDate() {
         return this.applicationDate;
     }
 
-    protected void setApplicationDate(TimeDate applicationDate) {
+    public void setApplicationDate(TimeDate applicationDate) {
         this.applicationDate = applicationDate;
     }
 
-    protected double getValue() {
+    public double getValue() {
         return this.value;
     }
 
-    protected void setValue(double value) {
+    public void setValue(double value) {
         this.value = value;
     }
 

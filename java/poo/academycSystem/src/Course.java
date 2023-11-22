@@ -21,55 +21,53 @@ public class Course {
 
 //    ===========================================================
 
-    private String getName() {
+    public String getName() {
         return name;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    private int getYear() {
+    public int getYear() {
         return year;
     }
 
-    private void setYear(int year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
-    private int getSemester() {
+    public int getSemester() {
         return semester;
     }
 
-    private void setSemester(int semester) {
+    public void setSemester(int semester) {
         this.semester = semester;
     }
 
-    private Professor getProf() {
+    public Professor getProf() {
         return prof;
     }
 
-    private void setProf(Professor prof) {
+    public void setProf(Professor prof) {
         this.prof = prof;
     }
 
-    private Student[] getStudents() {
+    public Student[] getStudents() {
         return students;
     }
 
-    private void setStudents(Student[] students) {
+    public void setStudents(Student[] students) {
         this.students = students;
     }
 
-    private Evaluation[] getEvaluations() {
+    public Evaluation[] getEvaluations() {
         return evaluations;
     }
 
-    private void setEvaluations(Evaluation[] evaluations) {
+    public void setEvaluations(Evaluation[] evaluations) {
         this.evaluations = evaluations;
     }
-
-
 
 //    ===========================================================
 
@@ -96,6 +94,11 @@ public class Course {
             System.out.println("= " + sum);
             courseMean += sum;
         }
-        System.out.println("Média da turma: " + courseMean / students.length);
+
+        try {
+            System.out.println("Média da turma: " + courseMean / students.length);
+        } catch (ArithmeticException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
     }
 }

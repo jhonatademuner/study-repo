@@ -16,11 +16,11 @@ public class StudentAssessment {
 
 //    ===========================================================
 
-    private Student getStudent() {
+    public Student getStudent() {
         return this.student;
     }
 
-    private void setStudent(Student student) {
+    public void setStudent(Student student) {
         this.student = student;
     }
 
@@ -32,19 +32,19 @@ public class StudentAssessment {
         this.grade = grade;
     }
 
-    private TimeDate getSentDate() {
+    public TimeDate getSentDate() {
         return this.sentDate;
     }
 
-    private void setSentDate(TimeDate deadline) {
+    public void setSentDate(TimeDate deadline) {
         this.sentDate = deadline;
     }
 
-    private int getExecTime() {
+    public int getExecTime() {
         return this.execTime;
     }
 
-    private void setExecTime(int execTime) {
+    public void setExecTime(int execTime) {
         this.execTime = execTime;
     }
 

@@ -13,11 +13,11 @@ public class Exam extends Evaluation {
 
 //    ===========================================================
 
-    private int getQuestionsNum() {
+    public int getQuestionsNum() {
         return this.QuestionsNum;
     }
 
-    private void setQuestionsNum(int questionsNum) {
+    public void setQuestionsNum(int questionsNum) {
         this.QuestionsNum = questionsNum;
     }
 
@@ -32,7 +32,12 @@ public class Exam extends Evaluation {
 //    ===========================================================
 
     public double grade(int index) {
-        return this.grades[index].totalGrades();
+        try {
+            return this.grades[index].totalGrades();
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
+        return -1;
     }
 
 }

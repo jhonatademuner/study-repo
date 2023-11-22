@@ -13,11 +13,11 @@ public class Assessment extends Evaluation {
 
 //    ===========================================================
 
-    private int getEstimateTime() {
+    public int getEstimateTime() {
         return this.estimateTime;
     }
 
-    private void setEstimateTime(int estimateTime) {
+    public void setEstimateTime(int estimateTime) {
         this.estimateTime = estimateTime;
     }
 
@@ -25,7 +25,7 @@ public class Assessment extends Evaluation {
         return this.grades;
     }
 
-    private void setGrades(StudentAssessment[] grades) {
+    public void setGrades(StudentAssessment[] grades) {
         this.grades = grades;
     }
 

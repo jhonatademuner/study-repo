@@ -122,5 +122,5 @@ Prova 2
 3
 3
 3
-### Sair do programa:
+4
 0
