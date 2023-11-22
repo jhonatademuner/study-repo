@@ -2,6 +2,7 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -20,7 +21,7 @@ public class Entrada {
     public Entrada() {
         try {
             // Se houver um arquivo input.txt, o Scanner vai ler dele.
-            this.input = new Scanner(new FileInputStream("input.txt"));
+            this.input = new Scanner(new FileInputStream("inputt.txt"));
         } catch (FileNotFoundException e) {
             // Caso contrário, vai ler do teclado.
             this.input = new Scanner(System.in);
@@ -38,7 +39,11 @@ public class Entrada {
         // Imprime uma mensagem ao usuário, lê uma e retorna esta linha
         System.out.print(msg);
         String linha = "0";
-        if (input.hasNextLine()) linha = this.input.nextLine();
+        try {
+            if (input.hasNextLine()) linha = this.input.nextLine();
+        } catch (NoSuchElementException | IllegalStateException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
 
         // Ignora linhas começando com #, que vão indicar comentários no arquivo de entrada:
         while (linha.charAt(0) == '#'){
@@ -102,10 +107,14 @@ public class Entrada {
                 "4) Listar média das turmas:\n" +
                 "0) Sair\n";
 
-        int op;
+        int op = -1;
 
         do {
-            op = this.lerInteiro(msg);
+            try {
+                op = this.lerInteiro(msg);
+            } catch (NumberFormatException e) {
+                System.out.println(e.getLocalizedMessage());;
+            }
         } while (op < 0 || op > 4);
 
         return op;
@@ -132,7 +141,7 @@ public class Entrada {
             } else {
                 System.out.println("Erro: CPF duplicado. Professor não adicionado.");
             }
-        } catch (IOException | StringIndexOutOfBoundsException e) {
+        } catch (IOException | StringIndexOutOfBoundsException | NumberFormatException e) {
             System.out.println(e.getLocalizedMessage());
         }
     }
@@ -192,11 +201,16 @@ public class Entrada {
      * @return Um array contendo todos os objetos da classe Aluno cujas matrículas foram digitadas.
      */
     private Student[] lerAlunos(AcademicSys s) {
-        int nAlunos = this.lerInteiro("Digite a quantidade de alunos na disciplina: ");
+        int nAlunos = 0;
+
+        do {
+            nAlunos = this.lerInteiro("Digite a quantidade de alunos na disciplina: ");
+        } while (nAlunos > s.getStudents().size() || nAlunos <= 0);
+
         Student[] alunos = new Student[nAlunos];
 
         for (int i = 0; i < nAlunos; i++) {
-            s.printProfessors();
+            s.printStudents();
 
             String mat = "";
             Student a = null;
@@ -362,7 +376,7 @@ public class Entrada {
             Evaluation[] avs = this.lerAvaliacoes(s, alunos);
 
             s.addCourse(new Course(disciplina, ano, sem, p, alunos, avs));
-        } catch (IOException | StringIndexOutOfBoundsException e) {
+        } catch (IOException | StringIndexOutOfBoundsException | NumberFormatException e) {
             System.out.println(e.getLocalizedMessage());
         }
     }
