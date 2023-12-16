@@ -1,11 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class StudentExam {
 
     private Student student;
-    private double[] grades;
+    private List<Double> grades;
 
 //    ===========================================================
 
-    public StudentExam(Student student, double[] grades) {
+    public StudentExam(Student student, ArrayList<Double> grades) {
         this.student = student;
         this.grades = grades;
     }
@@ -20,11 +23,11 @@ public class StudentExam {
         this.student = student;
     }
 
-    public double[] getGrades() {
+    public List<Double> getGrades() {
         return this.grades;
     }
 
-    public void setGrades(double[] grades) {
+    public void setGrades(List<Double> grades) {
         this.grades = grades;
     }
 

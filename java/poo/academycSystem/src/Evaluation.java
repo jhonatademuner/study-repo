@@ -1,4 +1,4 @@
-public class Evaluation {
+public abstract class Evaluation {
 
     private String name;
     private TimeDate applicationDate;
@@ -40,9 +40,9 @@ public class Evaluation {
 
 //    ===========================================================
 
-    public double grade(int index) {
-        return 0;
-    }
+    public abstract double grade(int index);
+
+    public abstract void swapEvaluation(int i, int j);
 
 
 }

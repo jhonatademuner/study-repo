@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Professor extends Person {
+public class Professor extends Person implements Comparable<Professor>{
 
     private double salary;
 
@@ -39,5 +39,11 @@ public class Professor extends Person {
         }
 
         return professorsList;
+    }
+
+    @Override
+    public int compareTo(Professor p) {
+        if (!this.getName().equals(p.getName())) return this.name.compareTo(p.getName());
+        return this.regId.compareTo(p.getRegId());
     }
 }

@@ -122,5 +122,61 @@ Prova 2
 3
 3
 3
+### 3) Cadastrando outra turma:
+3
+Estrutra de Dados
+2023
+2
+234.567.890-00
+### A turma terá 2 alunos:
+2
+A111
+F666
+### A turma terá 3 avaliações:
+3
+### A primeira avaliação é uma prova:
+1
+Prova 1
+3
+9
+2023
+30
+### Cada um dos 2 alunos terá nota em 2 questões:
+2
+15
+15
+9
+8
+### A segunda avaliação é um trabalho:
+2
+Trabalho 1
+10
+10
+2023
+40
+200
+### Cada um dos 2 alunos possui uma nota, data de entrega, tempo de execução:
+40
+11
+10
+2023
+100
+40
+10
+10
+2023
+300
+### A terceira avaliação é outra prova:
+1
+Prova 2
+12
+12
+2023
+30
+1
+30
+20
+### Imprimir saída:
 4
+### Sair do programa:
 0

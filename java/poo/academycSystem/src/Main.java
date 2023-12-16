@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Classe principal
@@ -9,20 +10,24 @@ import java.util.ArrayList;
 public class Main {
 
     private static void loadData(AcademicSys s){
-        CsvReader csvReader = new CsvReader();
+        FileManager fileManager = new FileManager();
 
-        ArrayList<Student> students = Student.convertCsvToArrayList(csvReader.readCsvFile("students.txt"));
-        ArrayList<Professor> professors = Professor.convertCsvToArrayList(csvReader.readCsvFile("professors.txt"));
+        try {
+            ArrayList<Student> students = Student.convertCsvToArrayList(fileManager.readCsvFile("students.txt"));
+            ArrayList<Professor> professors = Professor.convertCsvToArrayList(fileManager.readCsvFile("professors.txt"));
 
-        s.setStudents(students);
-        s.setProfessors(professors);
+            s.setStudents(students);
+            s.setProfessors(professors);
+        } catch (NullPointerException e) {
+            System.out.println("Arquivos locais não encontrados...");
+        }
     }
 
     private static void saveData(AcademicSys s){
-        CsvWriter csvWriter = new CsvWriter();
+        FileManager fileManager = new FileManager();
 
-        csvWriter.writeCsvFile(s.getStudents(), "students.txt");
-        csvWriter.writeCsvFile(s.getProfessors(), "professors.txt");
+        fileManager.writeCsvFile(s.getStudents(), "students.txt");
+        fileManager.writeCsvFile(s.getProfessors(), "professors.txt");
     }
 
     public static void main(String[] args) {
@@ -44,6 +49,7 @@ public class Main {
                 io.cadTurma(s);
             }
             if (op == 4) {
+                Collections.sort(s.getCourses());
                 for (Course c : s.getCourses()) c.averages();
             }
 

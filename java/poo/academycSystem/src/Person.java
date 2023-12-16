@@ -1,4 +1,4 @@
-public class Person {
+public abstract class Person {
 
     protected String name;
     protected String regId;
@@ -33,5 +33,4 @@ public class Person {
     public String toString() {
         return this.getName() + " (CPF: " + this.getRegId() + ")";
     }
-
 }

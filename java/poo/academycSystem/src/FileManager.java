@@ -1,14 +1,37 @@
-import java.lang.reflect.Field;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.SQLOutput;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-public class CsvWriter {
+public class FileManager implements Savable {
 
-    CsvWriter(){};
+    public Scanner input;
+    public FileManager(){};
 
-    public <T> void writeCsvFile(ArrayList<T> dataList, String filePath) {
+    public String readCsvFile(String filePath) {
+        StringBuilder content = new StringBuilder();
+
+        try {
+            this.input = new Scanner(new FileInputStream(filePath));
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
+
+        String nextLine;
+
+        while (this.input.hasNextLine()) {
+            nextLine = this.input.nextLine();
+            content.append(nextLine).append("\n");
+        }
+
+        return content.toString();
+    }
+
+    public <T> void writeCsvFile(List<T> dataList, String filePath) {
         try {
             FileWriter myWriter = new FileWriter(filePath);
             for (T dataObject : dataList){
@@ -34,5 +57,4 @@ public class CsvWriter {
         }
         return values;
     }
-
 }

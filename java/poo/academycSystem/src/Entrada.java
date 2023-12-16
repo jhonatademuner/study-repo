@@ -2,6 +2,7 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -21,7 +22,7 @@ public class Entrada {
     public Entrada() {
         try {
             // Se houver um arquivo input.txt, o Scanner vai ler dele.
-            this.input = new Scanner(new FileInputStream("inputt.txt"));
+            this.input = new Scanner(new FileInputStream("input.txt"));
         } catch (FileNotFoundException e) {
             // Caso contrário, vai ler do teclado.
             this.input = new Scanner(System.in);
@@ -200,14 +201,14 @@ public class Entrada {
      * @param s: Um objeto da classe Sistema
      * @return Um array contendo todos os objetos da classe Aluno cujas matrículas foram digitadas.
      */
-    private Student[] lerAlunos(AcademicSys s) {
+    private  ArrayList<Student> lerAlunos(AcademicSys s) {
         int nAlunos = 0;
 
         do {
             nAlunos = this.lerInteiro("Digite a quantidade de alunos na disciplina: ");
         } while (nAlunos > s.getStudents().size() || nAlunos <= 0);
 
-        Student[] alunos = new Student[nAlunos];
+        ArrayList<Student> alunos = new ArrayList<>();
 
         for (int i = 0; i < nAlunos; i++) {
             s.printStudents();
@@ -224,7 +225,7 @@ public class Entrada {
                 a = s.findStudent(mat);
             } while (a == null);
 
-            alunos[i] = a;
+            alunos.add(i, a);
 
         }
 
@@ -240,10 +241,10 @@ public class Entrada {
      * @return Um objeto da classe AlunoProva, com as respectivas as notas do aluno em cada questão da prova.
      */
     private StudentExam lerAlunoProva(AcademicSys s, Student a, int nQuestoes) {
-        double[] notas = new double[nQuestoes];
+        ArrayList<Double> notas = new ArrayList<>();
 
         for (int i = 0; i < nQuestoes; i++) {
-            notas[i] = lerDouble("Nota de " + a.getName() + " na questão " + (i + 1) + ": ");
+            notas.add(i, lerDouble("Nota de " + a.getName() + " na questão " + (i + 1) + ": "));
         }
 
         return new StudentExam(a, notas);
@@ -256,7 +257,7 @@ public class Entrada {
      * @param alunos: Um array com todos os alunos que fizeram esta prova.
      * @return Um novo objeto da classe Prova com todos os dados que foram lidos.
      */
-    private Exam lerProva(AcademicSys s, Student[] alunos) {
+    private Exam lerProva(AcademicSys s, ArrayList<Student> alunos) {
 
 
         String nome = null;
@@ -274,9 +275,9 @@ public class Entrada {
         double valor = this.lerDouble("Digite o valor máximo desta avaliação: ");
         int nQuestoes = this.lerInteiro("Digite o número de questões: ");
 
-        StudentExam[] notas = new StudentExam[alunos.length];
-        for (int i = 0; i < alunos.length; i++) {
-            notas[i] = this.lerAlunoProva(s, alunos[i], nQuestoes);
+        ArrayList<StudentExam> notas = new ArrayList<>();
+        for (int i = 0; i < alunos.size(); i++) {
+            notas.add(i, this.lerAlunoProva(s, alunos.get(i), nQuestoes));
         }
 
         return new Exam(nome, aplic, valor, nQuestoes, notas);
@@ -309,7 +310,7 @@ public class Entrada {
      * @param alunos: Um array com todos os alunos que fizeram esta prova.
      * @return Um novo objeto da classe Trabalho com todos os dados que foram lidos.
      */
-    private Assessment lerTrabalho(AcademicSys s, Student[] alunos) {
+    private Assessment lerTrabalho(AcademicSys s, ArrayList<Student> alunos) {
 
         String nome = null;
         try {
@@ -326,9 +327,9 @@ public class Entrada {
         double valor = this.lerDouble("Digite o valor máximo desta avaliação: ");
         int tempoEsp = this.lerInteiro("Digite o tempo esperado pelo professor: ");
 
-        StudentAssessment[] notas = new StudentAssessment[alunos.length];
-        for (int i = 0; i < alunos.length; i++) {
-            notas[i] = this.lerAlunoTrab(s, alunos[i]);
+        ArrayList<StudentAssessment> notas = new ArrayList<>();
+        for (int i = 0; i < alunos.size(); i++) {
+            notas.add(i, this.lerAlunoTrab(s, alunos.get(i)));
         }
 
         return new Assessment(nome, aplic, valor, tempoEsp, notas);
@@ -341,9 +342,9 @@ public class Entrada {
      * @param alunos: Um array com todos os alunos que fizeram esta prova.
      * @return Um array com todas as avaliações da disciplina.
      */
-    private Evaluation[] lerAvaliacoes(AcademicSys s, Student[] alunos) {
+    private ArrayList<Evaluation> lerAvaliacoes(AcademicSys s, ArrayList<Student> alunos) {
         int nAvaliacoes = this.lerInteiro("Digite a quantidade de avaliações na disciplina: ");
-        Evaluation[] avs = new Evaluation[nAvaliacoes];
+        ArrayList<Evaluation> avs = new ArrayList<>();
 
         for (int i = 0; i < nAvaliacoes; i++) {
             int op = this.lerInteiro("Escolha um tipo de avaliação:\n1) Prova\n2) Trabalho");
@@ -352,8 +353,8 @@ public class Entrada {
                 op = this.lerInteiro("Tipo de avaliação inválida. Tente novamente: ");
             }
 
-            if (op == 1) avs[i] = this.lerProva(s, alunos);
-            else avs[i] = this.lerTrabalho(s, alunos);
+            if (op == 1) avs.add(i, this.lerProva(s, alunos));
+            else avs.add(i, this.lerTrabalho(s, alunos));
         }
 
         return avs;
@@ -372,8 +373,8 @@ public class Entrada {
             int sem = this.lerInteiro("Digite o semestre da disciplina: ");
 
             Professor p = this.lerProf(s);
-            Student[] alunos = this.lerAlunos(s);
-            Evaluation[] avs = this.lerAvaliacoes(s, alunos);
+            ArrayList<Student>alunos = this.lerAlunos(s);
+            ArrayList<Evaluation> avs = this.lerAvaliacoes(s, alunos);
 
             s.addCourse(new Course(disciplina, ano, sem, p, alunos, avs));
         } catch (IOException | StringIndexOutOfBoundsException | NumberFormatException e) {

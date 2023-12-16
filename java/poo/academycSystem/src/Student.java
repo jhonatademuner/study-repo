@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Student extends Person {
+public class Student extends Person implements Comparable<Student> {
 
     private String mat;
 
@@ -23,6 +23,7 @@ public class Student extends Person {
 
 //    ===========================================================
 
+    @Override
     public String toString() {
         return this.getName() + " (Matrícula: " + this.getMat() + ")";
     }
@@ -44,5 +45,10 @@ public class Student extends Person {
         }
 
         return studentsList;
+    }
+
+    @Override
+    public int compareTo(Student s) {
+        return s.getMat().compareTo(this.getMat());
     }
 }

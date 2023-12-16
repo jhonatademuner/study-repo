@@ -1,12 +1,13 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class AcademicSys {
 
-    private ArrayList<Professor> professors;
+    private List<Professor> professors;
 
-    private ArrayList<Student> students;
+    private List<Student> students;
 
-    private ArrayList<Course> courses;
+    private List<Course> courses;
 
 //    ===========================================================
 
@@ -18,27 +19,27 @@ public class AcademicSys {
 
 //    ===========================================================
 
-    public ArrayList<Professor> getProfessors() {
+    public List<Professor> getProfessors() {
         return professors;
     }
 
-    public void setProfessors(ArrayList<Professor> professors) {
+    public void setProfessors(List<Professor> professors) {
         this.professors = professors;
     }
 
-    public ArrayList<Student> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(ArrayList<Student> students) {
+    public void setStudents(List<Student> students) {
         this.students = students;
     }
 
-    public ArrayList<Course> getCourses() {
+    public List<Course> getCourses() {
         return courses;
     }
 
-    public void setCourses(ArrayList<Course> courses){
+    public void setCourses(List<Course> courses){
         this.courses = courses;
     }
 
