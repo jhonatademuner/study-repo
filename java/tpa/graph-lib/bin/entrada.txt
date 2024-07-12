@@ -1,0 +1,9 @@
+4
+Vitoria
+Serra
+Colatina
+Santa Teresa
+0,20,0,0
+20,0,100,90
+0,100,0,50
+0,90,50,0
