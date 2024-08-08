@@ -2,17 +2,20 @@ package domain.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import domain.City;
 import domain.Graph;
 import domain.Node;
 
 @SuppressWarnings("rawtypes")
 public class GraphImpl implements Graph {
 
-	private Set<Node> nodes = new HashSet<Node>();
+	private List<Node> nodes = new ArrayList<Node>();
 	private List<List<Float>> adjacencyMatrix = new ArrayList<List<Float>>();
 	private int nodesCount = 0;
 
@@ -20,12 +23,12 @@ public class GraphImpl implements Graph {
 	}
 
 	@Override
-	public Set<Node> getNodes() {
+	public List<Node> getNodes() {
 		return nodes;
 	}
 
 	@Override
-	public void setNodes(Set<Node> nodes) {
+	public void setNodes(List<Node> nodes) {
 		this.nodes = nodes;
 	}
 
@@ -55,7 +58,6 @@ public class GraphImpl implements Graph {
 		this.nodesCount = nodes.size();
 	}
 
-	// TODO: if necessary, add node removal bahavior
 	private void updateAdjacencyMatrix() {
 		for (int i = 0; i < nodesCount; i++) {
 			if (i >= adjacencyMatrix.size()) {
@@ -70,8 +72,20 @@ public class GraphImpl implements Graph {
 	}
 
 	@Override
-	public void addEdge(Node origin, Node destination, Float weight) {
-		adjacencyMatrix.get(getNodeIndex(origin)).set(getNodeIndex(destination), weight);
+	public void addEdge(String origin, String destination, Float weight) {
+
+		Node originNode = getNodeByValue(origin);
+		Node destinationNode = getNodeByValue(destination);
+		adjacencyMatrix.get(getNodeIndex(originNode)).set(getNodeIndex(destinationNode), weight);
+	}
+
+	private Node getNodeByValue(String name) {
+		for (Node<City> node : nodes) {
+			if (node.getValue().getName().equals(name)) {
+				return node;
+			}
+		}
+		throw new IllegalArgumentException("Node not found");
 	}
 
 	@Override
@@ -83,11 +97,11 @@ public class GraphImpl implements Graph {
 		key.set(getNodeIndex(node), 0f);
 
 		for (int i = 0; i < nodesCount - 1; i++) {
-			int u = minKey(key, visited); 
-			visited.set(u, true); 
+			int u = minKey(key, visited);
+			visited.set(u, true);
 
 			for (int v = 0; v < nodesCount; v++) {
-				if (adjacencyMatrix.get(u).get(v) != 0 && !visited.get(v) && adjacencyMatrix.get(u).get(v) < key.get(v)) { 
+				if (adjacencyMatrix.get(u).get(v) != 0 && !visited.get(v) && adjacencyMatrix.get(u).get(v) < key.get(v)) {
 					optimum.set(v, this.nodes.toArray(new Node[nodes.size()])[v]);
 				}
 			}
@@ -95,10 +109,9 @@ public class GraphImpl implements Graph {
 
 		System.out.println("Edge \tWeight");
 		for (int i = 1; i < nodesCount; i++) {
-			System.out.println(optimum.get(i) + " - " + nodes.toArray(new Node[nodes.size()])[i] + "\t" + key.get(getNodeIndex(optimum.get(i))));
+			System.out.println(optimum.get(i) + " - " + nodes.toArray(new Node[nodes.size()])[i] + "\t"
+					+ key.get(getNodeIndex(optimum.get(i))));
 		}
-
-
 
 		return optimum;
 	}
@@ -118,28 +131,51 @@ public class GraphImpl implements Graph {
 	}
 
 	@Override
-	public void calculateShortestPathBetween(Node node1, Node node2) {
-		float weight = 0f;
+	public String calculateShortestPathBetween(String origin, String destination) {
+
+		Node originNode = getNodeByValue(origin);
+		Node destinationNode = getNodeByValue(destination);
+
+		Map<Integer, Float> nodesDistance = new HashMap<>();
 		List<Node> visited = new ArrayList<>();
 		List<Node> toBeVisited = new ArrayList<>();
 
-		toBeVisited.add(node1);
+		toBeVisited.add(originNode);
 
-		while(!toBeVisited.isEmpty()) { //if tobevisited is not empty check every node in tobevisited until is empty
-			Node currentNode = GetLowestPathNode(toBeVisited); //return shortest path
+		while (!toBeVisited.isEmpty()) { // if tobevisited is not empty check every node in tobevisited until is empty
+			Node currentNode = getLowestPathNode(toBeVisited, visited.isEmpty() ? originNode : visited.getLast()); // return shortest path
 			toBeVisited.remove(currentNode);
-			for(float adjacentNode : adjacencyMatrix.get(currentNode)) //iterate every adjacent node of current node
-				if(!visited.contains(adjacentNode)){ 
+			int currentNodeIndex = getNodeIndex(currentNode);
+			for (Node adjacentNode : this.getNodes()) { // iterate every adjacent node of current node
+				int adjacentNodeIndex = getNodeIndex(adjacentNode);
+				if (adjacentNode != currentNode & this.getAdjacencyMatrix().get(currentNodeIndex).get(adjacentNodeIndex) != 0
+						& !visited.contains(adjacentNode)) {
 					toBeVisited.add(adjacentNode);
+					float distance = this.getAdjacencyMatrix().get(currentNodeIndex).get(adjacentNodeIndex) + nodesDistance.getOrDefault(currentNodeIndex, 0f);
+					nodesDistance.put(adjacentNodeIndex, distance);
 				}
-				
+			}
 			visited.add(currentNode);
 
 		}
 
-		System.out.println("shortest path between " + node1 + " and " + node2 + " is " + weight);
+		return "shortest path between " + origin + " and " + destination + " is " + nodesDistance.get(getNodeIndex(destinationNode));
 
-		return;
+	}
+
+	private Node getLowestPathNode(List<Node> toBeVisited, Node originNode) {
+		Node lowestPathNode = toBeVisited.get(0);
+		float lowestPath = Float.MAX_VALUE;
+		int originNodeIndex = getNodeIndex(originNode);
+		for (Node node : toBeVisited) {
+			int nodeIndex = getNodeIndex(node);
+			float nodePath = adjacencyMatrix.get(originNodeIndex).get(nodeIndex);
+			if (nodePath < lowestPath) {
+				lowestPath = nodePath;
+				lowestPathNode = node;
+			}
+		}
+		return lowestPathNode;
 	}
 
 	@Override

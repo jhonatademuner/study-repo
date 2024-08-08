@@ -1,19 +1,48 @@
-import service.FileService;
-import service.impl.FileServiceImpl;
+import service.file.FileService;
+import service.file.impl.FileServiceImpl;
+import service.ui.text.TextUiService;
+import service.ui.text.impl.TextUiServiceImpl;
 import domain.Graph;
-import domain.Node;
+import domain.impl.GraphImpl;;
 
 public class App {
   public static void main(String[] args) throws Exception {
+
+    final TextUiService textUiService = new TextUiServiceImpl();
+    final FileService fileService = new FileServiceImpl();
+    final Graph graph = fileService.read();
     
-    FileService fileService = new FileServiceImpl();
+    String chosenOption;
 
-    Graph cityGraph = fileService.read("entrada.txt");
+		do {
+			chosenOption = textUiService.showInitialMenu();
 
-    System.out.println(cityGraph);
+			switch (chosenOption) {
+				case "1":
+          textUiService.addCity(graph);
+					break;
+				case "2":
+          textUiService.addRoute(graph);
+					break;
+				case "3":
+          textUiService.calculateMst(graph);
+					break;
+				case "4":
+          textUiService.calculateShortestPath(graph);
+					break;
+				case "5":
+          textUiService.calculateShortestPathMst(graph);
+					break;
+				case "6":
+          textUiService.saveAndExit(graph);
+					break;
+        case "7":
+          System.out.println("Saindo...");
+          break;
+				default:
+					System.out.println("Opção inválida");
+			}
 
-    fileService.save(cityGraph, "grafoCompleto.txt");
-    Node node = cityGraph.getNodes().toArray()[0];
-    fileService.saveMst(cityGraph.calculateMst(node), "agm.txt");
+		} while (!chosenOption.equals("7"));
   }
 }

@@ -1,14 +1,13 @@
 package domain;
 
-import java.util.Set;
 import java.util.List;
 
 @SuppressWarnings("rawtypes")
 public interface Graph {
 
-	Set<Node> getNodes();
+	List<Node> getNodes();
 
-	void setNodes(Set<Node> nodes);
+	void setNodes(List<Node> nodes);
 
 	List<List<Float>> getAdjacencyMatrix();
 
@@ -18,11 +17,11 @@ public interface Graph {
 
 	void addNode(Node node);
 
-	void addEdge(Node origin, Node destiny, Float weight);
+	void addEdge(String origin, String destiny, Float weight);
 
 	List<Node> calculateMst(Node node);
 
-	void calculateShortestPathBetween(Node node1, Node node2);
+	String calculateShortestPathBetween(String node1, String node2);
 
 	void calculateMstShortestPathBetween(Node node);
 
