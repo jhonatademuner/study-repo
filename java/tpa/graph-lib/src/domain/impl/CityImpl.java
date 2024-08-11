@@ -23,7 +23,7 @@ public class CityImpl implements City {
 
 	@Override
 	public String toString() {
-		return "CityImpl [name=" + name + "]";
+		return name;
 	}
 
 }

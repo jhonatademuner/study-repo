@@ -6,49 +6,46 @@ import domain.Node;
 @SuppressWarnings("rawtypes")
 public class EdgeImpl implements Edge {
 
-	private Node source;
-	private Node destiny;
+	private Node origin;
+	private Node destination;
 	private float weight;
 
-	public EdgeImpl(Node source, Node destiny, float weight) {
-		this.source = source;
-		this.destiny = destiny;
+	public EdgeImpl() {
+	}
+	
+	public EdgeImpl(Node origin, Node destination, float weight) {
+		this.origin = origin;
+		this.destination = destination;
 		this.weight = weight;
 	}
 
-	@Override
-	public Node getSource() {
-		return source;
+	public Node getOrigin() {
+		return origin;
 	}
 
-	@Override
-	public void setSource(Node source) {
-		this.source = source;
+	public void setOrigin(Node origin) {
+		this.origin = origin;
 	}
 
-	@Override
-	public Node getDestiny() {
-		return destiny;
+	public Node getDestination() {
+		return destination;
 	}
 
-	@Override
-	public void setDestiny(Node destiny) {
-		this.destiny = destiny;
+	public void setDestination(Node destination) {
+		this.destination = destination;
 	}
 
-	@Override
 	public float getWeight() {
 		return weight;
 	}
 
-	@Override
 	public void setWeight(float weight) {
 		this.weight = weight;
 	}
 
 	@Override
 	public String toString() {
-		return "EdgeImpl [origin=" + source + ", destiny=" + destiny + ", weight=" + weight + "]";
+		return "EdgeImpl [origin=" + origin + ", destination=" + destination + ", weight=" + weight + "]";
 	}
 
 }

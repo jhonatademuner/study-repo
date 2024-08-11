@@ -3,13 +3,13 @@ package domain;
 @SuppressWarnings("rawtypes")
 public interface Edge {
 
-	Node getSource();
+	Node getOrigin();
 
-	void setSource(Node origin);
+	void setOrigin(Node origin);
 
-	Node getDestiny();
+	Node getDestination();
 
-	void setDestiny(Node destiny);
+	void setDestination(Node destiny);
 
 	float getWeight();
 

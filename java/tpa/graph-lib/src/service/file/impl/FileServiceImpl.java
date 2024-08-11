@@ -49,11 +49,11 @@ public class FileServiceImpl implements FileService {
       reader.close();
     } catch (FileNotFoundException e) {
       e.printStackTrace();
-      return graph;
+      return new GraphImpl();
     }
     
     
-
+    graph.updateNodesCount();
     return graph;
   }
 

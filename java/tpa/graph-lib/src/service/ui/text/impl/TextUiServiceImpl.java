@@ -14,24 +14,22 @@ import service.file.impl.FileServiceImpl;
 import service.ui.text.TextUiService;
 import utils.service.ui.text.AbstractTextUiService;
 
-public class TextUiServiceImpl extends AbstractTextUiService implements TextUiService{
+public class TextUiServiceImpl extends AbstractTextUiService implements TextUiService {
 
   Scanner sc = new Scanner(System.in);
   FileService fileService = new FileServiceImpl();
 
   public String showInitialMenu() {
     List<String> options = List.of(
-      "1 - Acrescentar cidade",
-      "2 - Acrescentar rota",
-      "3 - Calcular árvore geradora mínima (AGM)",
-      "4 - Calcular caminho mínimo entre duas cidades",
-      "5 - Calcular caminho mínimo entre duas cidades considerando apenas a AGM",
-      "6 - Gravar e Sair",
-      "7 - Sair"
-    );
+        "1 - Acrescentar cidade",
+        "2 - Acrescentar rota",
+        "3 - Calcular árvore geradora mínima (AGM)",
+        "4 - Calcular caminho mínimo entre duas cidades",
+        "5 - Calcular caminho mínimo entre duas cidades considerando apenas a AGM",
+        "6 - Gravar e Sair",
+        "7 - Sair");
     return super.showInitialMenu(options);
   }
-
 
   @Override
   public void addCity(Graph graph) {
@@ -57,14 +55,10 @@ public class TextUiServiceImpl extends AbstractTextUiService implements TextUiSe
     showResult("Rota adicionada com sucesso!");
   }
 
-
   @Override
   public void calculateMst(Graph graph) {
-    printTitle("Calcular árvore geradora mínima (AGM)");
-    graph.calculateMst(graph.getNodes().get(0));
-    showResult("Árvore geradora mínima calculada com sucesso!");
+    showResult(graph.calculateMst(graph.getNodes().get(0)));
   }
-
 
   @Override
   public void calculateShortestPath(Graph graph) {
@@ -73,10 +67,9 @@ public class TextUiServiceImpl extends AbstractTextUiService implements TextUiSe
     String originCityName = sc.nextLine();
     System.out.println("Nome da cidade de destino: ");
     String destinationCityName = sc.nextLine();
-    
+
     showResult(graph.calculateShortestPathBetween(originCityName, destinationCityName));
   }
-
 
   @Override
   public void calculateShortestPathMst(Graph graph) {
@@ -85,10 +78,8 @@ public class TextUiServiceImpl extends AbstractTextUiService implements TextUiSe
     String originCityName = sc.nextLine();
     System.out.println("Nome da cidade de destino: ");
     String destinationCityName = sc.nextLine();
-    // graph.calculateShortestPathMst(originCityName, destinationCityName);
-    showResult("Caminho mínimo calculado com sucesso!");
+    showResult(graph.calculateMstShortestPathBetween(originCityName, destinationCityName));
   }
-
 
   @Override
   public int saveAndExit(Graph graph) {
@@ -99,6 +90,4 @@ public class TextUiServiceImpl extends AbstractTextUiService implements TextUiSe
     return 7;
   }
 
-  
-  
 }

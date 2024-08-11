@@ -15,14 +15,20 @@ public interface Graph {
 
 	int getNodesCount();
 
+	List<Edge> getMst();
+
+	void setMst(List<Edge> mst);
+
+	void updateNodesCount();
+
 	void addNode(Node node);
 
 	void addEdge(String origin, String destiny, Float weight);
 
-	List<Node> calculateMst(Node node);
+	String calculateMst(Node node);
 
 	String calculateShortestPathBetween(String node1, String node2);
 
-	void calculateMstShortestPathBetween(Node node);
+	String calculateMstShortestPathBetween(String node1, String node2);
 
 }
