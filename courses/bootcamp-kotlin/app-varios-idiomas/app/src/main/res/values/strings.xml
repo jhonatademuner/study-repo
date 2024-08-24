@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AppVariosIdiomas</string>
+    <string name="greetings">Hello World!</string>
+    <string name="main_text">This app change the language according to your device language.</string>
+</resources>

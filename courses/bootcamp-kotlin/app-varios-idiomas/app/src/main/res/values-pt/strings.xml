@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppVariosIdiomas</string>
+    <string name="greetings">Olá Mundo!</string>
+    <string name="main_text">Este app muda de idioma de acordo com o idioma do seu dispositivo.</string>
+</resources>
