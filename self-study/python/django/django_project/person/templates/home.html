@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
+<div class="container mt-5">
+  <h3 class="text-center mb-4">People List</h3>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for person in people %}
+      <tr>
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+      </tr>
+      {% empty %}
+      <td colspan="2" class="text-center">No people found.</td>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% else %}
+
+<div class="col-md-6 offset-md-3">
+  <h1>Login</h1>
+  <br />
+
+  <form method="POST" action="{% url 'home' %}">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        ,
+        placeholder="Username"
+        required
+      />
+    </div>
+    <br />
+    <div class="mb-3">
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        ,
+        placeholder="Password"
+        required
+      />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-secondary">Login</button>
+  </form>
+
+  {% endif %} {% endblock %}
+</div>
